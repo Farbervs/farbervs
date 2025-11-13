@@ -1,0 +1,170 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #4DD337;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1em;
+    text-align: center;
+    width: 100%; /* Full wide menu size */
+    position: sticky;   /* ← делает закрепление */
+    top: 0;             /* ← позиция */
+    z-index: 9999;      /* ← чтобы было поверх сетки */
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav li {
+    margin-right: 20px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.tag-btn {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.tag-btn:hover {
+    background-color: #444;
+}
+
+.show-all-btn {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* Максимум 5 колонок */
+    grid-auto-rows: auto; /* Высота строки будет установлена через JS */
+    gap: 10px;
+    width: 90%; /* Полная ширина */
+    margin: 0 auto;
+}
+
+.grid-item {
+    background-color: #e1e1e1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    color: #333;
+    transition: all 0.2s ease-in-out; /* Hover effect */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add a subtle shadow effect */
+}
+
+.grid-item:hover {
+    background-color: #ccc;
+    cursor: pointer;
+}
+
+/* Custom grid item sizes */
+.wide-1 {
+    grid-column: span 1;
+}
+
+.wide-2 {
+    grid-column: span 2;
+}
+
+.wide-3 {
+    grid-column: span 3;
+}
+
+.tall-1 {
+    grid-row: span 1;
+}
+
+.tall-2 {
+    grid-row: span 2;
+}
+
+/* Responsive adjustments */
+@media (max-width: 950px) {
+    .grid-container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 720px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Скрытие элементов при фильтрации */
+.grid-item.hidden {
+    display: none;
+}
+
+.popup-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    max-width: 80%; /* Ensure the popup content doesn't exceed a certain width */
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 50%; /* Give the close button a rounded shape */
+}
+
+.popup-text {
+    font-size: 1.5rem;
+    color: #333;
+}
